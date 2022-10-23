@@ -8,8 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import userEvent from "@testing-library/user-event";
 import "../styles/UserList.css";
+import UserDetail from "./UserDetail";
 
 //https://randomuser.me/api/?results=10
 
@@ -59,6 +59,16 @@ const UserList = () => {
               <TableRow
                 key={user.login.uuid}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                onClick={() => {
+                  alert(
+                    "Name : " + user.name.first + " " + user.name.last + "\n" + 
+                    "Gender : " + user.gender + "\n" + "Age : " + user.dob.age + "\n" + 
+                    "Phone : " + user.phone + "\n" + "Cell : " + user.cell + "\n" +
+                    "Country : " + user.location.country + "\n" + "State : " + user.location.state + "\n" +
+                    "City : " + user.location.city + "\n" + "Email : " + user.email + "\n" +
+                    "Picture : " + user.picture.large
+                  );
+                }}
               >
                 <TableCell component="th" scope="row">
                   {user.name.first}
